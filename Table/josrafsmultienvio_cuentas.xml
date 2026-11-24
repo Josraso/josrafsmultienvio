@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : josrafsmultienvio_cuentas.xml
+    Author     : Josra
+    Description:
+        Estructura de la tabla josrafsmultienvio_cuentas.
+-->
+<table>
+    <column>
+        <name>activa</name>
+        <type>boolean</type>
+        <default>true</default>
+    </column>
+    <column>
+        <name>authtype</name>
+        <type>character varying(20)</type>
+    </column>
+    <column>
+        <name>email</name>
+        <type>character varying(100)</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>emailbcc</name>
+        <type>character varying(200)</type>
+    </column>
+    <column>
+        <name>emailcc</name>
+        <type>character varying(200)</type>
+    </column>
+    <column>
+        <name>enc</name>
+        <type>character varying(10)</type>
+    </column>
+    <column>
+        <name>firma</name>
+        <type>text</type>
+    </column>
+    <column>
+        <name>host</name>
+        <type>character varying(200)</type>
+    </column>
+    <column>
+        <name>id</name>
+        <type>serial</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>idempresa</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>idformato</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>lowsecure</name>
+        <type>boolean</type>
+        <default>true</default>
+    </column>
+    <column>
+        <name>mailer</name>
+        <type>character varying(10)</type>
+    </column>
+    <column>
+        <name>nombre</name>
+        <type>character varying(50)</type>
+    </column>
+    <column>
+        <name>orden</name>
+        <type>integer</type>
+        <default>100</default>
+    </column>
+    <column>
+        <name>password</name>
+        <type>character varying(500)</type>
+    </column>
+    <column>
+        <name>predeterminada</name>
+        <type>boolean</type>
+        <default>false</default>
+    </column>
+    <column>
+        <name>puerto</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>remitente</name>
+        <type>character varying(100)</type>
+    </column>
+    <column>
+        <name>replyto</name>
+        <type>character varying(100)</type>
+    </column>
+    <column>
+        <name>testfecha</name>
+        <type>timestamp</type>
+    </column>
+    <column>
+        <name>testok</name>
+        <type>boolean</type>
+    </column>
+    <column>
+        <name>usuario</name>
+        <type>character varying(100)</type>
+    </column>
+    <constraint>
+        <name>josrafsmultienvio_cuentas_pkey</name>
+        <type>PRIMARY KEY (id)</type>
+    </constraint>
+    <constraint>
+        <name>ca_josrafsmultienvio_cuentas_formatos</name>
+        <type>FOREIGN KEY (idformato) REFERENCES formatos_documentos (id) ON DELETE SET NULL ON UPDATE CASCADE</type>
+    </constraint>
+    <constraint>
+        <name>ca_josrafsmultienvio_cuentas_empresas</name>
+        <type>FOREIGN KEY (idempresa) REFERENCES empresas (idempresa) ON DELETE SET NULL ON UPDATE CASCADE</type>
+    </constraint>
+</table>

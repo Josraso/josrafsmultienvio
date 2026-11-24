@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : josrafsmultienvio_envios.xml
+    Author     : Josra
+    Description:
+        Estructura de la tabla josrafsmultienvio_envios: formato con el que se envio cada documento.
+-->
+<table>
+    <column>
+        <name>codigo</name>
+        <type>character varying(30)</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>email</name>
+        <type>character varying(100)</type>
+    </column>
+    <column>
+        <name>fecha</name>
+        <type>timestamp</type>
+    </column>
+    <column>
+        <name>id</name>
+        <type>serial</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>idcuenta</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>idformato</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>modelo</name>
+        <type>character varying(30)</type>
+        <null>NO</null>
+    </column>
+    <constraint>
+        <name>josrafsmultienvio_envios_pkey</name>
+        <type>PRIMARY KEY (id)</type>
+    </constraint>
+    <constraint>
+        <name>uniq_josrafsmultienvio_envios_doc</name>
+        <type>UNIQUE (modelo,codigo)</type>
+    </constraint>
+    <constraint>
+        <name>ca_josrafsmultienvio_envios_formatos</name>
+        <type>FOREIGN KEY (idformato) REFERENCES formatos_documentos (id) ON DELETE CASCADE ON UPDATE CASCADE</type>
+    </constraint>
+</table>
